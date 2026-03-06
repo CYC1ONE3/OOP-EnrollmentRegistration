@@ -5,11 +5,8 @@ public class Course {
     private String courseName;
     private String program;
 
-    public Course(){
+    public Course(int i) {
 
-    }
-    public Course(int courseID) {
-        this.courseID = courseID;
     }
     public Course(int courseID, String courseName, String program){
         this.courseID = courseID;

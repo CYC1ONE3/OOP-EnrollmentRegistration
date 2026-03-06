@@ -1,14 +1,14 @@
 package org.example.Service;
 
 import org.example.model.Course;
-import org.example.model.Student;
+
 import java.util.ArrayList;
 
 public class CourseRegistration {
     private ArrayList<Course> courses = new ArrayList<>();
 
-    public void addCourse(Student student) {
-        courses.add(courses);
+    public void addCourse(Course course) {
+        courses.add(course);
     }
 
     public void displayAll() {
@@ -28,7 +28,7 @@ public class CourseRegistration {
 
     //remove
 
-    public String delete(Student student) {
+    public String deleteCourse(Course course) {
         for (int i = 0; i < courses.size(); i++) {
             if (courses.get(i).getcourseID() == (course.getcourseID())) {
                 courses.remove(i);

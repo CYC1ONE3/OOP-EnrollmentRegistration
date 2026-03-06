@@ -6,9 +6,8 @@ public class Student {
     private String Name;
     private String program;
 
-    public Student(int ID) {
-        this.ID = ID;
-    }
+
+
 
     public Student(int ID, String Name, String program) {
         this.ID = ID;

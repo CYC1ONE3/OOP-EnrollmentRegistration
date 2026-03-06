@@ -28,7 +28,7 @@ public class StudentRegistration {
 
     //remove
 
-    public String delete(Student student) {
+    public String deleteStudent(Student student) {
         for (int i = 0; i < students.size(); i++) {
             if (students.get(i).getID() == (student.getID())) {
                 students.remove(i);

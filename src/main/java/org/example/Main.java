@@ -11,10 +11,8 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-        public class Main {
-            public static void main(String[] args) {
                 Scanner cyc = new Scanner(System.in);
-                ArrayList<Student> courses = new ArrayList<>();
+                ArrayList<Student> students = new ArrayList<>();
                 CourseRegistration courses = new CourseRegistration();
 
                 courses.addCourse(new Course(01, "BSIT", "Information Technology"));
@@ -27,7 +25,7 @@ public class Main {
                 courses.updateCourse(new Course(06));
                 courses.displayAll();
 
-                courses.delete(new Course(03));
+                courses.deleteCourse(new Course(03));
                 courses.displayAll();
 
                 StudentRegistration enrollment = new StudentRegistration();
@@ -42,5 +40,4 @@ public class Main {
 
             }
         }
-    }
-}
+
