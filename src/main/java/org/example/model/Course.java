@@ -1,23 +1,23 @@
 package org.example.model;
 
 public class Course {
-    private int courseID;
+    private String courseID;
     private String courseName;
     private String program;
 
-    public Course(int ids) {
+    public Course(String courseID) {
 
     }
-    public Course(int courseID, String courseName, String program){
+    public Course(String courseID, String courseName, String program){
         this.courseID = courseID;
         this.courseName = courseName;
         this.program = program;
     }
 
-    public int getcourseID(){
+    public String getcourseID(){
         return courseID;
     }
-    public void setcourseID(int courseID){
+    public void setcourseID(String courseID){
         this.courseID = courseID;
     }
     public String getcourseName(){

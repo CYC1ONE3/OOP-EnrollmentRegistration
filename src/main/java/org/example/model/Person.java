@@ -5,6 +5,19 @@ public class Person {
     private int ID;
     private String Name;
 
+    public Person(){
+        this(0);
+    }
+    public Person (int ID){
+
+        this(ID, "Unknown");
+    }
+public Person (int ID, String Name){
+        this.ID = ID;
+        this.Name = Name;
+}
+
+
     public int getID(){
         return ID;
     }
