@@ -4,6 +4,7 @@ import org.example.Service.CourseRegistration;
 import org.example.Service.StudentRegistration;
 import org.example.model.Student;
 import org.example.model.Course;
+import org.example.model.Person;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -37,6 +38,8 @@ public class Main {
 
                 enrollment.updateStudent(new Student(676767, "Yev", "BSIT"));
                 enrollment.displayAll();
+
+
 
             }
         }
