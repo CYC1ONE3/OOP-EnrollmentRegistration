@@ -11,4 +11,4 @@ OOP - Enrollment System
 **Inheritance**
 ![Course.png](src/main/resources/Images/Course.png)
 
-![Student.png](src/main/resources/Images/Student.png)
+![Students.png](src/main/resources/Images/Students.png)
