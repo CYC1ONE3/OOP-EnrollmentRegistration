@@ -7,3 +7,8 @@ OOP - Enrollment System
 
 
 ![scan.png](src/main/resources/Images/scan.png)
+
+**Inheritance**
+![Course.png](src/main/resources/Images/Course.png)
+
+![Student.png](src/main/resources/Images/Student.png)
