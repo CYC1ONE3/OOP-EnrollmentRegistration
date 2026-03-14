@@ -6,6 +6,8 @@ public class Instructor extends Person{
         this(0, "Unknown", "None");
     }
 
+
+
     public Instructor(int ID, String Name, String courses){
         super(ID, Name);
         this.courses = courses;
@@ -17,5 +19,10 @@ public class Instructor extends Person{
 
     public void setCourses(String courses){
         this.courses = courses;
+    }
+
+    @Override
+    public void mainTask() {
+        System.out.println(getName() + " is teaching");
     }
 }
