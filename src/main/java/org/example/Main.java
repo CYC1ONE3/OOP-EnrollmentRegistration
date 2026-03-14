@@ -2,6 +2,7 @@ package org.example;
 
 import org.example.Service.CourseRegistration;
 import org.example.Service.StudentRegistration;
+import org.example.Service.TuitionFeePayment;
 import org.example.model.Student;
 import org.example.model.Course;
 import org.example.model.Person;
@@ -14,7 +15,10 @@ public class Main {
     public static void main(String[] args) {
 
 
-
+    TuitionFeePayment tuitionFeePayment = new TuitionFeePayment();
+        System.out.println(tuitionFeePayment.calculateTuitionFee(3, 0.10));
+        tuitionFeePayment.makePayment(1000);
+        System.out.println(tuitionFeePayment.getRemainingBalance());
 
 
        Student s1 = new Student(67, "Jaques Cabillon", "BSIT");
