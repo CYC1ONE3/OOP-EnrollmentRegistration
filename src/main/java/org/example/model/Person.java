@@ -1,6 +1,6 @@
 package org.example.model;
 
-public class Person {
+public abstract class Person {
 
     private int ID;
     private String Name;
@@ -33,5 +33,7 @@ public Person (int ID, String Name){
     public void setName(){
         this.Name = Name;
     }
+
+    public abstract void mainTask();
 
 }

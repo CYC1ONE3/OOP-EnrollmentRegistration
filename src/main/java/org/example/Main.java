@@ -27,20 +27,35 @@ public class Main {
         System.out.println("Program: " + s1.getProgram());
         System.out.println();
 
+        s1.mainTask();
+
+        System.out.println();
+
         Student s2 = new Student(69, "Yev Torres", "BSIT");
         System.out.println("Student ID: " + s2.getID());
         System.out.println("Student Name: " + s2.getName());
         System.out.println("Program: " + s2.getProgram());
         System.out.println();
 
+        s2.mainTask();
+
+        System.out.println();
+
+        Instructor i1 = new Instructor (202, "Miguel Rosal", "Interrogative Programming");
+        System.out.println("Instructor ID: " + i1.getID());
+        System.out.println("Instructor Name: " + i1.getName());
+        System.out.println("Course: " + i1.getCourses());
+
+        i1.mainTask();
+
         Course c1 = new Course("INFOMAN", "Information Management", "BSIT");
-        System.out.println("Student ID: " + c1.getcourseID());
-        System.out.println("Student Name: " + c1.getcourseName());
+        System.out.println("Course ID: " + c1.getcourseID());
+        System.out.println("Course Name: " + c1.getcourseName());
         System.out.println("Program: " + c1.getprogram());
         System.out.println();
 
 
-
+/*
                 Scanner cyc = new Scanner(System.in);
                 ArrayList<Student> students = new ArrayList<>();
                 CourseRegistration courses = new CourseRegistration();
@@ -68,7 +83,7 @@ public class Main {
                 enrollment.updateStudent(new Student(676767, "Yev", "BSIT"));
                 enrollment.displayAll();
 
-
+*/
     }
 }
 

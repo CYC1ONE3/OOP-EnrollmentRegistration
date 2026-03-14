@@ -8,6 +8,8 @@ public class Student extends Person{
         this(0, "Unknown", "None");
     }
 
+
+
     public Student(int ID, String Name, String program){
         super(ID, Name);
         this.program = program;
@@ -20,4 +22,10 @@ public class Student extends Person{
     public void setProgram(String program){
         this.program = program;
     }
+
+    @Override
+    public void mainTask() {
+        System.out.println(getName() + " is studying");
+    }
+
 }
