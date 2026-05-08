@@ -1,15 +1,9 @@
 package org.example;
 
-import org.example.Service.CourseRegistration;
-import org.example.Service.StudentRegistration;
-import org.example.Service.TuitionFeePayment;
+import org.example.Service.*;
 import org.example.model.Student;
 import org.example.model.Course;
-import org.example.model.Person;
 import org.example.model.Instructor;
-
-import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
@@ -84,8 +78,37 @@ public class Main {
                 enrollment.displayAll();
 
 */
+        StudentRegistrationImpl studentRegistration = new StudentRegistrationImpl();
+        CourseRegistrationImpl courseRegistration = new CourseRegistrationImpl();
+        CourseRegistrar courseRegistrar = new CourseRegistrar(studentRegistration, courseRegistration);
+
+
+        Student s6 = new Student(1, "Migs", "BSIT");
+        Student s7 = new Student(2, "John", "BSCS");
+
+        CourseRegistrar.addStudent(s6);
+        CourseRegistrar.addStudent(s7);
+
+
+        System.out.println("=== Students ===");
+        courseRegistrar.displayAllStudent();
+
+
+        Student updated = new Student(1, "Miguel", "BSIT");
+        courseRegistrar.updateStudent(updated);
+
+        System.out.println("\n=== After Update ===");
+        courseRegistrar.displayAllStudent();
+
+
+        courseRegistrar.deleteStudent(s2);
+
+        System.out.println("\n=== After Delete ===");
+        courseRegistrar.displayAllStudent();
     }
+
 }
+
 
 
 

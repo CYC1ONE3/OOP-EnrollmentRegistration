@@ -16,7 +16,7 @@ public class TuitionFeePayment {
 
     public void makePayment(double amount){
         balance = totalTuition - amount;
-        if (balance < 0); {
+        if (balance < 0) {
             balance = 0;
         }
 
@@ -28,7 +28,7 @@ public class TuitionFeePayment {
         return balance;
     }
     public boolean isFullyPaid(){
-       return balance == 0 ? true : false;
+       return balance == 0;
        }
     }
 

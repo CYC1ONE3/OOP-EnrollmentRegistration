@@ -15,6 +15,7 @@ public class Student extends Person{
         this.program = program;
     }
 
+
     public String getProgram(){
         return program;
     }
@@ -28,4 +29,11 @@ public class Student extends Person{
         System.out.println(getName() + " is studying");
     }
 
+    @Override
+    public String toString() {
+        return "Student{" +
+                "program='" + program + '\'' +
+                '}';
+    }
 }
+

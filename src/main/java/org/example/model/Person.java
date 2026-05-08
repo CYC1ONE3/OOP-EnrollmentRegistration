@@ -3,7 +3,7 @@ package org.example.model;
 public abstract class Person {
 
     private int ID;
-    private String Name;
+    private String name;
 
     public Person(){
         this(0);
@@ -12,9 +12,9 @@ public abstract class Person {
 
         this(ID, "Unknown");
     }
-public Person (int ID, String Name){
+public Person (int ID, String name){
         this.ID = ID;
-        this.Name = Name;
+        this.name = name;
 }
 
 
@@ -27,13 +27,20 @@ public Person (int ID, String Name){
     }
 
     public String getName(){
-        return Name;
+        return name;
     }
 
-    public void setName(){
-        this.Name = Name;
+    public void setName(String name){
+        this.name = name;
     }
 
     public abstract void mainTask();
 
+    @Override
+    public String toString() {
+        return "Person{" +
+                "ID=" + ID +
+                ", Name='" + name + '\'' +
+                '}';
+    }
 }
