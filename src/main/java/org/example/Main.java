@@ -4,6 +4,9 @@ import org.example.Service.*;
 import org.example.model.Student;
 import org.example.model.Course;
 import org.example.model.Instructor;
+import org.example.model.Section;
+import org.example.exception.SectionFullException;
+import org.example.Service.EnrollmentServiceImpl;
 
 public class Main {
     public static void main(String[] args) {
@@ -105,6 +108,25 @@ public class Main {
 
         System.out.println("\n=== After Delete ===");
         courseRegistrar.displayAllStudent();
+
+        IEnrollmentService enrollmentService = new EnrollmentServiceImpl();
+
+        Section section = new Section("BSIT-1A", 2);
+
+        Student s8 = new Student(1, "Migs", "BSIT");
+        Student s9 = new Student(2, "John", "BSIT");
+        Student s10 = new Student(3, "Alex", "BSIT");
+
+        try {
+            enrollmentService.enrollStudentInSection(s8, section);
+            enrollmentService.enrollStudentInSection(s9, section);
+
+            // This should FAIL
+            enrollmentService.enrollStudentInSection(s10, section);
+
+        } catch (SectionFullException e) {
+            System.out.println("ERROR: " + e.getMessage());
+        }
     }
 
 }
