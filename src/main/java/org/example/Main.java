@@ -17,6 +17,8 @@ public class Main {
 
         IEnrollmentService enrollmentService = new EnrollmentServiceImpl();
 
+        InstructorServiceImpl instructorService = new InstructorServiceImpl();
+
         CourseRegistrar courseRegistrar = new CourseRegistrar(studentRegistration, courseRegistration, enrollmentService);
 
         Student student1 = new Student(202301, "Wiljohn Lingao", "Information Technology");
@@ -46,7 +48,12 @@ public class Main {
 
         Instructor instructor1 = new Instructor(101, "Miguel Rosal", "Integrative Programming");
 
+        instructorService.addInstructor(instructor1);
+
         Instructor instructor2 = new Instructor(102, "Jaques Cabillon", "Discrete Mathematics");
+
+
+        instructorService.addInstructor(instructor2);
 
         it2A.setInstructor(instructor1);
         it2B.setInstructor(instructor1);
@@ -90,10 +97,11 @@ public class Main {
 
             System.out.println("\n>>>>>>>> ENROLLMENT SYSTEM <3 <<<<<<<");
             System.out.println("1. Student Management");
-            System.out.println("2. Course Management");
-            System.out.println("3. Enrollment");
-            System.out.println("4. Tuition");
-            System.out.println("5. Exit");
+            System.out.println("2. Instructor Management");
+            System.out.println("3. Course Management");
+            System.out.println("4. Enrollment");
+            System.out.println("5. Tuition");
+            System.out.println("6. Exit");
 
             System.out.print("Choose option: ");
 
@@ -164,11 +172,9 @@ public class Main {
                                     System.out.print("Enter Program: ");
                                     String program = cyc.nextLine();
 
-                                    Student student =
-                                            new Student(id, name, program);
+                                    Student student = new Student(id, name, program);
 
-                                    boolean added =
-                                            courseRegistrar.addStudent(student);
+                                    boolean added = courseRegistrar.addStudent(student);
 
                                     if (added){
 
@@ -203,6 +209,91 @@ public class Main {
                     break;
 
                 case 2:
+
+                    while (true){
+
+                        System.out.println("\n>>>>> INSTRUCTOR MENU <<<<<");
+
+                        System.out.println("1. Add Instructor");
+                        System.out.println("2. View Instructors");
+                        System.out.println("3. Back");
+
+                        System.out.print("Choose option: ");
+
+                        int instructorChoice;
+
+                        try {
+
+                            instructorChoice = cyc.nextInt();
+                            cyc.nextLine();
+
+                        } catch (Exception e){
+
+                            System.out.println("Invalid input.");
+                            cyc.nextLine();
+                            continue;
+                        }
+
+                        switch (instructorChoice){
+
+                            case 1:
+
+                                int instructorID;
+
+                                try {
+
+                                    System.out.print("Enter Instructor ID: ");
+                                    instructorID = cyc.nextInt();
+                                    cyc.nextLine();
+
+                                } catch (Exception e){
+
+                                    System.out.println("Invalid input.");
+                                    cyc.nextLine();
+                                    break;
+                                }
+
+                                System.out.print("Enter Name: ");
+                                String instructorName = cyc.nextLine();
+
+                                System.out.print("Enter Course: ");
+                                String instructorCourse = cyc.nextLine();
+
+                                Instructor instructor = new Instructor(instructorID, instructorName, instructorCourse);
+
+                                boolean instructorAdded = instructorService.addInstructor(instructor);
+
+                                if (instructorAdded){
+
+                                    System.out.println("Instructor added successfully.");
+
+                                } else {
+
+                                    System.out.println("Duplicate Instructor ID.");
+                                }
+
+                                break;
+
+                            case 2:
+
+                                instructorService.displayAllInstructors();
+                                break;
+
+                            case 3:
+                                break;
+
+                            default:
+                                System.out.println("Invalid option.");
+                        }
+
+                        if (instructorChoice == 3){
+                            break;
+                        }
+                    }
+
+                    break;
+
+                case 3:
 
 
                     while (true){
@@ -268,7 +359,7 @@ public class Main {
 
                     break;
 
-                case 3:
+                case 4:
 
 
                     while (true){
@@ -382,7 +473,7 @@ public class Main {
 
                     break;
 
-                case 4:
+                case 5:
 
                     TuitionFeePayment tuitionFeePayment =
                             new TuitionFeePayment();
@@ -417,6 +508,11 @@ public class Main {
 
                         double total = tuitionFeePayment.calculateTuitionFee(units, discount);
 
+                        if (!scholarship.equalsIgnoreCase("None")){
+
+                            total = tuitionFeePayment.applyScholarshipDiscount(scholarship);
+                        }
+
                         System.out.println("\n>>>>>>>>>> TUITION DETAILS <<<<<<<<<<");
                         System.out.println("Total Tuition Fee : ₱" + total);
 
@@ -428,11 +524,7 @@ public class Main {
                         System.out.println("\n>>>>>>>>> PAYMENT DETAILS <<<<<<<<<<");
                         System.out.println("Remaining Balance : ₱" + tuitionFeePayment.getRemainingBalance());
 
-                        if (!scholarship.equalsIgnoreCase("None")){
 
-                            total = tuitionFeePayment
-                                    .applyScholarshipDiscount(scholarship);
-                        }
 
                         if (tuitionFeePayment.isFullyPaid()) {
 
@@ -451,7 +543,7 @@ public class Main {
 
                     break;
 
-                case 5:
+                case 6:
                     System.out.println("Exiting system...");
                     return;
 
