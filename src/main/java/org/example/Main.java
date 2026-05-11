@@ -127,7 +127,9 @@ public class Main {
                         System.out.println("\n>>>>> STUDENT MENU <<<<<");
                         System.out.println("1. Add Student");
                         System.out.println("2. View Students");
-                        System.out.println("3. Back");
+                        System.out.println("3. Update Student");
+                        System.out.println("4. Delete Student");
+                        System.out.println("5. Back");
 
                         System.out.print("Choose option: ");
 
@@ -195,6 +197,36 @@ public class Main {
                                 break;
 
                             case 3:
+
+                                try {
+
+                                    System.out.print("Enter Student ID to Update: ");
+                                    int updateID = cyc.nextInt();
+                                    cyc.nextLine();
+
+                                    System.out.print("Enter New Name: ");
+                                    String updatedName = cyc.nextLine();
+
+                                    System.out.print("Enter New Program: ");
+                                    String updatedProgram = cyc.nextLine();
+
+                                    Student updatedStudent =
+                                            new Student(
+                                                    updateID,
+                                                    updatedName,
+                                                    updatedProgram
+                                            );
+
+                                    courseRegistrar.updateStudent(updatedStudent);
+
+                                    System.out.println("Student updated successfully.");
+
+                                } catch (Exception e){
+
+                                    System.out.println("Invalid input.");
+                                    cyc.nextLine();
+                                }
+
                                 break;
 
                             default:
@@ -216,7 +248,9 @@ public class Main {
 
                         System.out.println("1. Add Instructor");
                         System.out.println("2. View Instructors");
-                        System.out.println("3. Back");
+                        System.out.println("3. Update Instructor");
+                        System.out.println("4. Delete Instructor");
+                        System.out.println("5. Back");
 
                         System.out.print("Choose option: ");
 
@@ -280,13 +314,77 @@ public class Main {
                                 break;
 
                             case 3:
+
+                                try {
+
+                                    System.out.print("Enter Instructor ID to Update: ");
+                                    int updateInstructorID = cyc.nextInt();
+                                    cyc.nextLine();
+
+                                    System.out.print("Enter New Name: ");
+                                    String updatedInstructorName =
+                                            cyc.nextLine();
+
+                                    System.out.print("Enter New Course: ");
+                                    String updatedCourse =
+                                            cyc.nextLine();
+
+                                    Instructor updatedInstructor =
+                                            new Instructor(
+                                                    updateInstructorID,
+                                                    updatedInstructorName,
+                                                    updatedCourse
+                                            );
+
+                                    instructorService
+                                            .updateInstructor(updatedInstructor);
+
+                                    System.out.println(
+                                            "Instructor updated successfully."
+                                    );
+
+                                } catch (Exception e){
+
+                                    System.out.println("Invalid input.");
+                                    cyc.nextLine();
+                                }
+
+                                break;
+
+                            case 4:
+
+                                try {
+
+                                    System.out.print("Enter Instructor ID to Delete: ");
+                                    int deleteInstructorID = cyc.nextInt();
+                                    cyc.nextLine();
+
+                                    Instructor deleteInstructor =
+                                            new Instructor(
+                                                    deleteInstructorID,
+                                                    "",
+                                                    ""
+                                            );
+
+                                    String result =
+                                            instructorService
+                                                    .deleteInstructor(deleteInstructor);
+
+                                    System.out.println(result);
+
+                                } catch (Exception e){
+
+                                    System.out.println("Invalid input.");
+                                    cyc.nextLine();
+                                }
+
                                 break;
 
                             default:
                                 System.out.println("Invalid option.");
                         }
 
-                        if (instructorChoice == 3){
+                        if (instructorChoice == 5){
                             break;
                         }
                     }
@@ -301,7 +399,9 @@ public class Main {
                         System.out.println("\n>>>>> COURSE MENU <<<<<");
                         System.out.println("1. Add Course");
                         System.out.println("2. View Courses");
-                        System.out.println("3. Back");
+                        System.out.println("3. Update Course");
+                        System.out.println("4. Delete Course");
+                        System.out.println("5. Back");
 
                         System.out.print("Choose option: ");
 
@@ -354,18 +454,52 @@ public class Main {
                                 break;
 
                             case 3:
+
+                                System.out.print("Enter Course ID to Update: ");
+                                String updateCourseID = cyc.nextLine();
+
+                                System.out.print("Enter New Course Name: ");
+                                String updatedCourseName = cyc.nextLine();
+
+                                System.out.print("Enter New Program: ");
+                                String updatedCourseProgram = cyc.nextLine();
+
+                                Course updatedCourse = new Course(updateCourseID, updatedCourseName, updatedCourseProgram);
+
+                                courseRegistrar.updateCourse(updatedCourse);
+
+                                System.out.println("Course updated successfully.");
+
+                                break;
+
+                            case 4:
+
+                                System.out.print("Enter Course ID to Delete: ");
+                                String deleteCourseID = cyc.nextLine();
+
+                                Course deleteCourse = new Course(deleteCourseID, "", "");
+
+                                String result = courseRegistrar.deleteCourse(deleteCourse);
+
+                                System.out.println(result);
+
                                 break;
 
                             default:
                                 System.out.println("Invalid option.");
                         }
 
-                        if (courseChoice == 3){
+
+
+                        if (courseChoice == 4){
                             break;
                         }
                     }
 
                     break;
+
+
+
 
                 case 4:
 
