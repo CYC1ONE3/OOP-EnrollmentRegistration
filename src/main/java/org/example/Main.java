@@ -1,10 +1,7 @@
 package org.example;
 
 import org.example.Service.*;
-import org.example.model.Student;
-import org.example.model.Course;
-import org.example.model.Instructor;
-import org.example.model.Section;
+import org.example.model.*;
 import org.example.exception.SectionFullException;
 import org.example.Service.EnrollmentServiceImpl;
 
@@ -22,7 +19,67 @@ public class Main {
 
         CourseRegistrar courseRegistrar = new CourseRegistrar(studentRegistration, courseRegistration, enrollmentService);
 
+        Student student1 = new Student(202301, "Wiljohn Lingao", "Information Technology");
 
+        Student student2 = new Student(202302, "Mark Bagayao", "Information Technology");
+
+        Student student3 = new Student(202303, "Yev Torres", "Computer Science");
+
+        Student student4 = new Student(202304, "Raphael Aranez", "Computer Engineering");
+
+        courseRegistrar.addStudent(student1);
+        courseRegistrar.addStudent(student2);
+        courseRegistrar.addStudent(student3);
+        courseRegistrar.addStudent(student4);
+
+
+        Department cite = new Department("College of Information Technology and Engineering");
+
+        Section it2A = new Section("IT2A", 35);
+        Section it2B = new Section("IT2B", 35);
+
+        Section c1A = new Section("C1A", 35);
+        Section cs2B = new Section("CS2B", 35);
+
+        Instructor instructor1 = new Instructor(101, "Miguel Rosal", "Integrative Programming");
+
+        Instructor instructor2 = new Instructor(102, "Jaques Cabillon", "Discrete Mathematics");
+
+        it2A.setInstructor(instructor1);
+        it2B.setInstructor(instructor1);
+
+        c1A.setInstructor(instructor2);
+        cs2B.setInstructor(instructor2);
+
+        Course inteprog =
+                new Course(
+                        "INTEPROG",
+                        "Integrative Programming",
+                        "Information Technology"
+                );
+
+        Course infoman = new Course("INFOMAN", "Information Management", "Information Technology");
+
+        Course dismath = new Course("DISMATH", "Discrete Mathematics", "Computer Science");
+
+        Course itsysde = new Course("ITSYSDE", "IT Systems Design", "Information Technology");
+
+        Course infasec2 = new Course("INFASEC2", "Information Assurance and Security 2", "Information Technology");
+
+        Course pathfi4 = new Course("PATHFI4", "Physical Activities Towards Health and Fitness 4", "General Education");
+
+        courseRegistrar.addCourse(inteprog);
+        courseRegistrar.addCourse(infoman);
+        courseRegistrar.addCourse(dismath);
+        courseRegistrar.addCourse(itsysde);
+        courseRegistrar.addCourse(infasec2);
+        courseRegistrar.addCourse(pathfi4);
+
+        cite.addSection(it2A);
+        cite.addSection(it2B);
+
+        cite.addSection(c1A);
+        cite.addSection(cs2B);
         while (true) {
 
             System.out.println("\n>>>>>>>> ENROLLMENT SYSTEM <3 <<<<<<<");
@@ -108,7 +165,7 @@ public class Main {
                                 System.out.println("Invalid option.");
                         }
 
-                        if (studentChoice == 3){
+                        if (studentChoice == 3) {
                             break;
                         }
                     }
@@ -248,7 +305,6 @@ public class Main {
         */
 
     }
-
 }
 
 
