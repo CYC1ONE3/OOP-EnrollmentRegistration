@@ -9,7 +9,17 @@ public class CourseRegistrationImpl implements CourseRegistration {
 
     @Override
     public void addCourse(Course course) {
-        courses.add(course);
+        for (Course c : courses){
+
+            if (c.getcourseID()
+                    .equals(course.getcourseID())){
+
+                System.out.println("ERROR: Duplicate Course ID");
+                return;
+            }
+        }
+
+        courses.add(course);;
     }
     @Override
     public void displayAllCourse() {
@@ -30,7 +40,7 @@ public class CourseRegistrationImpl implements CourseRegistration {
     public void updateCourse(Course course) {
 
         for (int i = 0; i < courses.size(); i++) {
-            if (courses.get(i).getcourseID() == (course.getcourseID())) {
+            if (courses.get(i).getcourseID() .equals(course.getcourseID())) {
                 courses.set(i, course);
                 break;
             }
@@ -42,7 +52,7 @@ public class CourseRegistrationImpl implements CourseRegistration {
     @Override
     public String deleteCourse(Course course) {
         for (int i = 0; i < courses.size(); i++) {
-            if (courses.get(i).getcourseID() == (course.getcourseID())) {
+            if (courses.get(i).getcourseID() .equals(course.getcourseID())) {
                 courses.remove(i);
                 return "Successfully deleted";
             }

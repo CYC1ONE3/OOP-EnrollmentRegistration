@@ -373,6 +373,11 @@ public class Main {
                         System.out.print("Enter discount rate (0.10 for 10%): ");
                         double discount = cyc.nextDouble();
 
+                        cyc.nextLine();
+
+                        System.out.print("Enter scholarship type (Academic/Athletic/None): ");
+                        String scholarship = cyc.nextLine();
+
                         double total = tuitionFeePayment.calculateTuitionFee(units, discount);
 
                         System.out.println("\n>>>>>>>>>> TUITION DETAILS <<<<<<<<<<");
@@ -384,8 +389,13 @@ public class Main {
                         tuitionFeePayment.makePayment(payment);
 
                         System.out.println("\n>>>>>>>>> PAYMENT DETAILS <<<<<<<<<<");
-                        System.out.println("Remaining Balance : ₱"
-                                + tuitionFeePayment.getRemainingBalance());
+                        System.out.println("Remaining Balance : ₱" + tuitionFeePayment.getRemainingBalance());
+
+                        if (!scholarship.equalsIgnoreCase("None")){
+
+                            total = tuitionFeePayment
+                                    .applyScholarshipDiscount(scholarship);
+                        }
 
                         if (tuitionFeePayment.isFullyPaid()) {
 

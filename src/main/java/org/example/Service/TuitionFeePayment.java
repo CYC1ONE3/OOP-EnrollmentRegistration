@@ -9,10 +9,27 @@ public class TuitionFeePayment {
 
     public double calculateTuitionFee(int units, double discountRate){
 
+
         totalTuition = units * pricePerUnit;
 
         if (discountRate != 0){
             totalTuition -= (totalTuition * discountRate);
+        }
+
+        balance = totalTuition;
+
+        return totalTuition;
+    }
+
+    public double applyScholarshipDiscount(String scholarshipType){
+
+        if (scholarshipType.equalsIgnoreCase("Academic")){
+
+            totalTuition = totalTuition * 0.50;
+
+        } else if (scholarshipType.equalsIgnoreCase("Athletic")){
+
+            totalTuition = totalTuition * 0.75;
         }
 
         balance = totalTuition;
