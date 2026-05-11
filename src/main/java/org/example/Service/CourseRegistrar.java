@@ -4,6 +4,7 @@ import org.example.model.Section;
 import org.example.exception.SectionFullException;
 import org.example.model.Course;
 import org.example.model.Student;
+import org.example.model.Department;
 
 public class CourseRegistrar {
     private StudentRegistration studentRegistration;
@@ -67,6 +68,12 @@ public class CourseRegistrar {
 
             System.out.println("ERROR: " + e.getMessage());
         }
+    }
+
+    public void viewDepartment(Department department){
+
+        enrollmentService.viewDepartmentHierarchy(department);
+
     }
 }
 

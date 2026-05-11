@@ -179,11 +179,183 @@ public class Main {
                     break;
 
                 case 2:
-                    System.out.println("Course Menu");
+
+
+                    while (true){
+
+                        System.out.println("\n===== COURSE MENU =====");
+                        System.out.println("1. Add Course");
+                        System.out.println("2. View Courses");
+                        System.out.println("3. Back");
+
+                        System.out.print("Choose option: ");
+
+                        int courseChoice;
+
+                        try {
+
+                            courseChoice = cyc.nextInt();
+                            cyc.nextLine();
+
+                        } catch (Exception e){
+
+                            System.out.println("Invalid input.");
+                            cyc.nextLine();
+                            continue;
+                        }
+
+                        switch (courseChoice){
+
+                            case 1:
+
+                                System.out.print("Enter Course ID: ");
+                                String courseID = cyc.nextLine();
+
+                                System.out.print("Enter Course Name: ");
+                                String courseName = cyc.nextLine();
+
+                                System.out.print("Enter Program: ");
+                                String program = cyc.nextLine();
+
+                                Course course =
+                                        new Course(courseID, courseName, program);
+
+                                courseRegistrar.addCourse(course);
+
+                                System.out.println("Course added successfully.");
+                                break;
+
+                            case 2:
+
+                                courseRegistrar.displayAllCourse();
+                                break;
+
+                            case 3:
+                                break;
+
+                            default:
+                                System.out.println("Invalid option.");
+                        }
+
+                        if (courseChoice == 3){
+                            break;
+                        }
+                    }
+
                     break;
 
                 case 3:
-                    System.out.println("Enrollment Menu");
+
+
+                    while (true){
+
+                        System.out.println("\n===== ENROLLMENT MENU =====");
+                        System.out.println("1. Enroll Student");
+                        System.out.println("2. View Department Hierarchy");
+                        System.out.println("3. Back");
+
+                        System.out.print("Choose option: ");
+
+                        int enrollChoice;
+
+                        try {
+
+                            enrollChoice = cyc.nextInt();
+                            cyc.nextLine();
+
+                        } catch (Exception e){
+
+                            System.out.println("Invalid input.");
+                            cyc.nextLine();
+                            continue;
+                        }
+
+                        switch (enrollChoice){
+
+                            case 1:
+
+                                System.out.print("Enter Student ID: ");
+                                int studentID = cyc.nextInt();
+                                cyc.nextLine();
+
+                                Student selectedStudent = null;
+
+                                for (Student s :
+                                        studentRegistration.getAllStudents()){
+
+                                    if (s.getID() == studentID){
+                                        selectedStudent = s;
+                                        break;
+                                    }
+                                }
+
+                                if (selectedStudent == null){
+
+                                    System.out.println("Student not found.");
+                                    break;
+                                }
+
+                                System.out.println("Choose Section:");
+                                System.out.println("1. IT2A");
+                                System.out.println("2. IT2B");
+                                System.out.println("3. C1A");
+                                System.out.println("4. C2B");
+
+                                int sectionChoice = cyc.nextInt();
+                                cyc.nextLine();
+
+                                Section selectedSection = null;
+
+                                switch (sectionChoice){
+
+                                    case 1:
+                                        selectedSection = it2A;
+                                        break;
+
+                                    case 2:
+                                        selectedSection = it2B;
+                                        break;
+
+                                    case 3:
+                                        selectedSection = c1A;
+                                        break;
+
+                                    case 4:
+                                        selectedSection = cs2B;
+                                        break;
+
+                                    default:
+                                        System.out.println("Invalid section.");
+                                        break;
+                                }
+
+                                if (selectedSection != null){
+
+                                    courseRegistrar.enrollStudent(
+                                            selectedStudent,
+                                            selectedSection
+                                    );
+                                }
+
+                                break;
+
+                            case 2:
+
+                                courseRegistrar.viewDepartment(cite);
+                                break;
+
+                            case 3:
+                                break;
+
+                            default:
+                                System.out.println("Invalid option.");
+                        }
+
+                        if (enrollChoice == 3){
+                            break;
+                        }
+                    }
+
                     break;
 
                 case 4:
