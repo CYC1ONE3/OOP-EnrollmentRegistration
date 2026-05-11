@@ -299,7 +299,7 @@ public class Main {
                                 System.out.println("1. IT2A");
                                 System.out.println("2. IT2B");
                                 System.out.println("3. C1A");
-                                System.out.println("4. C2B");
+                                System.out.println("4. CS2B");
 
                                 int sectionChoice = cyc.nextInt();
                                 cyc.nextLine();

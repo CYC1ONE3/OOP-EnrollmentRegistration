@@ -22,7 +22,7 @@ public class EnrollmentServiceImpl implements IEnrollmentService {
     @Override
     public void viewDepartmentHierarchy(Department department) {
 
-        System.out.println("Department.java: " + department.getName());
+        System.out.println("Department: " + department.getName());
 
         for (Section section : department.getSections()) {
 
