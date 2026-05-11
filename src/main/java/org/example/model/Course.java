@@ -6,7 +6,7 @@ public class Course {
     private String program;
 
     public Course(String courseID) {
-
+        this.courseID = courseID;
     }
     public Course(String courseID, String courseName, String program){
         this.courseID = courseID;

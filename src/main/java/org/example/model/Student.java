@@ -15,6 +15,7 @@ public class Student extends Person{
         this.program = program;
     }
 
+
     public String getProgram(){
         return program;
     }
@@ -27,5 +28,14 @@ public class Student extends Person{
     public void mainTask() {
         System.out.println(getName() + " is studying");
     }
+    @Override
+    public String toString() {
+        return "Student{" +
+                "ID=" + getID() +
+                ", Name='" + getName() + '\'' +
+                ", Program='" + program + '\'' +
+                '}';
 
+    }
 }
+

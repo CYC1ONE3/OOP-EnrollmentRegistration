@@ -18,10 +18,10 @@ class TuitionFeePaymentTest {
     @Test
     @DisplayName("Calculation of Tuition Fee")
     void shouldReturnCorrectCalculationOfTuitionFee(){
-        //Act
 
 
-        assertEquals(3000, tuitionFeePayment.calculateTuitionFee(3,0.10));
+
+        assertEquals(2700, tuitionFeePayment.calculateTuitionFee(3,0.10));
     }
     @Test
     void shouldreturnCirrectCalculationOfTuitionFeeWithTenPercentDiscount(){
@@ -47,11 +47,48 @@ class TuitionFeePaymentTest {
     }
 
     @Test
-    void shouldCheckIfTheTuitionFeeIsFullyPaid(){
-        tuitionFeePayment.calculateTuitionFee(3,0.10);
+    void shouldCheckIfTheTuitionFeeIsFullyPaid() {
+        tuitionFeePayment.calculateTuitionFee(3, 0.10);
         tuitionFeePayment.makePayment(2700);
 
         assertTrue(tuitionFeePayment.isFullyPaid());
+
     }
+    @Test
+    void shouldNotAllowNegativeBalance() {
+
+            tuitionFeePayment.calculateTuitionFee(3, 0);
+            tuitionFeePayment.makePayment(5000);
+
+            assertEquals(0,
+                    tuitionFeePayment.getRemainingBalance());
+
+
+    }
+
+    @Test
+    @DisplayName("Should Calculate Tuition Without Discount")
+    void shouldCalculateTuitionWithoutDiscount() {
+
+        // Arrange & Act
+        double result =
+                tuitionFeePayment.calculateTuitionFee(3, 0);
+
+        // Assert
+        assertEquals(3000, result);
+    }
+
+    @Test
+    @DisplayName("Should Apply Academic Scholarship")
+    void shouldApplyAcademicScholarship(){
+
+        tuitionFeePayment.calculateTuitionFee(3,0);
+
+        double result = tuitionFeePayment.applyScholarshipDiscount("Academic");
+
+        assertEquals(1500, result);
+    }
+
+
 }
 
