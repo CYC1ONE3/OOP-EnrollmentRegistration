@@ -1,15 +1,19 @@
 package org.example.Service;
 
+import org.example.model.Section;
+import org.example.exception.SectionFullException;
 import org.example.model.Course;
 import org.example.model.Student;
 
 public class CourseRegistrar {
     private StudentRegistration studentRegistration;
     private CourseRegistration courseRegistration;
+    private IEnrollmentService enrollmentService;
 
     public CourseRegistrar(StudentRegistration studentRegistration, CourseRegistration courseRegistration, IEnrollmentService enrollmentService){
         this.studentRegistration = studentRegistration;
         this.courseRegistration = courseRegistration;
+        this.enrollmentService = enrollmentService;
     }
 
     public String addCourse(Course course){
@@ -49,6 +53,20 @@ public class CourseRegistrar {
 
     public String deleteCourse(Course course){
         return courseRegistration.deleteCourse(course);
+    }
+
+    public void enrollStudent(Student student, Section section){
+
+        try {
+
+            enrollmentService.enrollStudentInSection(student, section);
+
+            System.out.println("Student enrolled successfully.");
+
+        } catch (SectionFullException e){
+
+            System.out.println("ERROR: " + e.getMessage());
+        }
     }
 }
 

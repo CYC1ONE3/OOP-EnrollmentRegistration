@@ -2,12 +2,12 @@ package org.example;
 
 import org.example.Service.*;
 import org.example.model.*;
-import org.example.exception.SectionFullException;
 import org.example.Service.EnrollmentServiceImpl;
 
 import java.util.Scanner;
 
 public class Main {
+
     public static void main(String[] args) {
 
         Scanner cyc = new Scanner(System.in);
@@ -27,16 +27,19 @@ public class Main {
 
         Student student4 = new Student(202304, "Raphael Aranez", "Computer Engineering");
 
+        Student student5 = new Student(202456, "Ron Joseph Reyes", "Information Technology");
+
         courseRegistrar.addStudent(student1);
         courseRegistrar.addStudent(student2);
         courseRegistrar.addStudent(student3);
         courseRegistrar.addStudent(student4);
+        courseRegistrar.addStudent(student5);
 
 
         Department cite = new Department("College of Information Technology and Engineering");
 
         Section it2A = new Section("IT2A", 35);
-        Section it2B = new Section("IT2B", 35);
+        Section it2B = new Section("IT2B", 1);
 
         Section c1A = new Section("C1A", 35);
         Section cs2B = new Section("CS2B", 35);
@@ -51,12 +54,7 @@ public class Main {
         c1A.setInstructor(instructor2);
         cs2B.setInstructor(instructor2);
 
-        Course inteprog =
-                new Course(
-                        "INTEPROG",
-                        "Integrative Programming",
-                        "Information Technology"
-                );
+        Course inteprog = new Course("INTEPROG", "Integrative Programming", "Information Technology");
 
         Course infoman = new Course("INFOMAN", "Information Management", "Information Technology");
 
@@ -80,6 +78,14 @@ public class Main {
 
         cite.addSection(c1A);
         cite.addSection(cs2B);
+
+        courseRegistrar.enrollStudent(student1, it2A);
+        courseRegistrar.enrollStudent(student2, it2B);
+
+        courseRegistrar.enrollStudent(student3, c1A);
+
+        courseRegistrar.enrollStudent(student4, cs2B);
+        courseRegistrar.enrollStudent(student5, it2B);
         while (true) {
 
             System.out.println("\n>>>>>>>> ENROLLMENT SYSTEM <3 <<<<<<<");
