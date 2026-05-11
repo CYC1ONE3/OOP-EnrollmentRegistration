@@ -72,5 +72,34 @@ public class InstructorServiceImpl implements IInstructorService {
     @Override
     public void displayAllInstructors() {
 
+        System.out.println(
+                "\n>>>>>>>> INSTRUCTOR LIST <<<<<<<<"
+        );
+
+        if (instructors.isEmpty()){
+
+            System.out.println("No instructors found.");
+            return;
+        }
+
+        for (Instructor i : instructors){
+
+            System.out.println("------------------------------");
+
+            System.out.println(
+                    "Instructor ID : "
+                            + i.getID()
+            );
+
+            System.out.println(
+                    "Name          : "
+                            + i.getName()
+            );
+
+            System.out.println(
+                    "Course        : "
+                            + i.getCourses()
+            );
+        }
     }
 }

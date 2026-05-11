@@ -54,6 +54,15 @@ public class TuitionFeePayment {
     public double getRemainingBalance(){
         return balance;
     }
+    public double getChange(double payment){
+
+        if (payment > totalTuition){
+
+            return payment - totalTuition;
+        }
+
+        return 0;
+    }
 
     public boolean isFullyPaid(){
         return balance == 0;

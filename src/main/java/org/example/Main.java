@@ -151,7 +151,7 @@ public class Main {
 
                             case 1:
 
-                                while (true){
+                                while (true) {
 
                                     int id;
 
@@ -161,7 +161,7 @@ public class Main {
                                         id = cyc.nextInt();
                                         cyc.nextLine();
 
-                                    } catch (Exception e){
+                                    } catch (Exception e) {
 
                                         System.out.println("Invalid ID input.");
                                         cyc.nextLine();
@@ -178,7 +178,7 @@ public class Main {
 
                                     boolean added = courseRegistrar.addStudent(student);
 
-                                    if (added){
+                                    if (added) {
 
                                         System.out.println("Student added successfully.");
                                         break;
@@ -221,7 +221,7 @@ public class Main {
 
                                     System.out.println("Student updated successfully.");
 
-                                } catch (Exception e){
+                                } catch (Exception e) {
 
                                     System.out.println("Invalid input.");
                                     cyc.nextLine();
@@ -242,7 +242,7 @@ public class Main {
 
                 case 2:
 
-                    while (true){
+                    while (true) {
 
                         System.out.println("\n>>>>> INSTRUCTOR MENU <<<<<");
 
@@ -261,14 +261,14 @@ public class Main {
                             instructorChoice = cyc.nextInt();
                             cyc.nextLine();
 
-                        } catch (Exception e){
+                        } catch (Exception e) {
 
                             System.out.println("Invalid input.");
                             cyc.nextLine();
                             continue;
                         }
 
-                        switch (instructorChoice){
+                        switch (instructorChoice) {
 
                             case 1:
 
@@ -280,7 +280,7 @@ public class Main {
                                     instructorID = cyc.nextInt();
                                     cyc.nextLine();
 
-                                } catch (Exception e){
+                                } catch (Exception e) {
 
                                     System.out.println("Invalid input.");
                                     cyc.nextLine();
@@ -297,7 +297,7 @@ public class Main {
 
                                 boolean instructorAdded = instructorService.addInstructor(instructor);
 
-                                if (instructorAdded){
+                                if (instructorAdded) {
 
                                     System.out.println("Instructor added successfully.");
 
@@ -343,7 +343,7 @@ public class Main {
                                             "Instructor updated successfully."
                                     );
 
-                                } catch (Exception e){
+                                } catch (Exception e) {
 
                                     System.out.println("Invalid input.");
                                     cyc.nextLine();
@@ -359,20 +359,13 @@ public class Main {
                                     int deleteInstructorID = cyc.nextInt();
                                     cyc.nextLine();
 
-                                    Instructor deleteInstructor =
-                                            new Instructor(
-                                                    deleteInstructorID,
-                                                    "",
-                                                    ""
-                                            );
+                                    Instructor deleteInstructor = new Instructor(deleteInstructorID, "", "");
 
-                                    String result =
-                                            instructorService
-                                                    .deleteInstructor(deleteInstructor);
+                                    String result = instructorService.deleteInstructor(deleteInstructor);
 
                                     System.out.println(result);
 
-                                } catch (Exception e){
+                                } catch (Exception e) {
 
                                     System.out.println("Invalid input.");
                                     cyc.nextLine();
@@ -384,7 +377,7 @@ public class Main {
                                 System.out.println("Invalid option.");
                         }
 
-                        if (instructorChoice == 5){
+                        if (instructorChoice == 5) {
                             break;
                         }
                     }
@@ -394,7 +387,7 @@ public class Main {
                 case 3:
 
 
-                    while (true){
+                    while (true) {
 
                         System.out.println("\n>>>>> COURSE MENU <<<<<");
                         System.out.println("1. Add Course");
@@ -412,14 +405,14 @@ public class Main {
                             courseChoice = cyc.nextInt();
                             cyc.nextLine();
 
-                        } catch (Exception e){
+                        } catch (Exception e) {
 
                             System.out.println("Invalid input.");
                             cyc.nextLine();
                             continue;
                         }
 
-                        switch (courseChoice){
+                        switch (courseChoice) {
 
                             case 1:
 
@@ -432,13 +425,11 @@ public class Main {
                                 System.out.print("Enter Program: ");
                                 String program = cyc.nextLine();
 
-                                Course course =
-                                        new Course(courseID, courseName, program);
+                                Course course = new Course(courseID, courseName, program);
 
-                                boolean addedCourse =
-                                        courseRegistrar.addCourse(course);
+                                boolean addedCourse = courseRegistrar.addCourse(course);
 
-                                if (addedCourse){
+                                if (addedCourse) {
 
                                     System.out.println("Course added successfully.");
 
@@ -490,8 +481,7 @@ public class Main {
                         }
 
 
-
-                        if (courseChoice == 4){
+                        if (courseChoice == 4) {
                             break;
                         }
                     }
@@ -499,12 +489,10 @@ public class Main {
                     break;
 
 
-
-
                 case 4:
 
 
-                    while (true){
+                    while (true) {
 
                         System.out.println("\n>>>>> ENROLLMENT MENU <<<<<");
                         System.out.println("1. Enroll Student");
@@ -520,14 +508,14 @@ public class Main {
                             enrollChoice = cyc.nextInt();
                             cyc.nextLine();
 
-                        } catch (Exception e){
+                        } catch (Exception e) {
 
                             System.out.println("Invalid input.");
                             cyc.nextLine();
                             continue;
                         }
 
-                        switch (enrollChoice){
+                        switch (enrollChoice) {
 
                             case 1:
 
@@ -539,7 +527,7 @@ public class Main {
                                     studentID = cyc.nextInt();
                                     cyc.nextLine();
 
-                                } catch (Exception e){
+                                } catch (Exception e) {
 
                                     System.out.println("Invalid Student ID.");
                                     cyc.nextLine();
@@ -549,15 +537,15 @@ public class Main {
                                 Student selectedStudent = null;
 
                                 for (Student s :
-                                        studentRegistration.getAllStudents()){
+                                        studentRegistration.getAllStudents()) {
 
-                                    if (s.getID() == studentID){
+                                    if (s.getID() == studentID) {
                                         selectedStudent = s;
                                         break;
                                     }
                                 }
 
-                                if (selectedStudent == null){
+                                if (selectedStudent == null) {
 
                                     System.out.println("Student not found.");
                                     break;
@@ -576,7 +564,7 @@ public class Main {
                                     sectionChoice = cyc.nextInt();
                                     cyc.nextLine();
 
-                                } catch (Exception e){
+                                } catch (Exception e) {
 
                                     System.out.println("Invalid section input.");
                                     cyc.nextLine();
@@ -585,7 +573,7 @@ public class Main {
 
                                 Section selectedSection = null;
 
-                                switch (sectionChoice){
+                                switch (sectionChoice) {
 
                                     case 1:
                                         selectedSection = it2A;
@@ -608,7 +596,7 @@ public class Main {
                                         break;
                                 }
 
-                                if (selectedSection != null){
+                                if (selectedSection != null) {
 
                                     courseRegistrar.enrollStudent(
                                             selectedStudent,
@@ -630,7 +618,7 @@ public class Main {
                                 System.out.println("Invalid option.");
                         }
 
-                        if (enrollChoice == 3){
+                        if (enrollChoice == 3) {
                             break;
                         }
                     }
@@ -649,17 +637,16 @@ public class Main {
                         System.out.print("Enter number of units: ");
                         int units = cyc.nextInt();
 
-                        if (units <= 0){
+                        if (units <= 0) {
 
                             System.out.println("Invalid number of units.");
                             break;
                         }
 
 
-
                         System.out.print("Enter discount rate (0.10 for 10%): ");
                         double discount = cyc.nextDouble();
-                        if (discount < 0 || discount > 1){
+                        if (discount < 0 || discount > 1) {
 
                             System.out.println("Invalid discount rate.");
                             break;
@@ -672,7 +659,7 @@ public class Main {
 
                         double total = tuitionFeePayment.calculateTuitionFee(units, discount);
 
-                        if (!scholarship.equalsIgnoreCase("None")){
+                        if (!scholarship.equalsIgnoreCase("None")) {
 
                             total = tuitionFeePayment.applyScholarshipDiscount(scholarship);
                         }
@@ -687,7 +674,7 @@ public class Main {
 
                             payment = cyc.nextDouble();
 
-                        } catch (Exception e){
+                        } catch (Exception e) {
 
                             System.out.println("Invalid payment input.");
                             cyc.nextLine();
@@ -697,8 +684,16 @@ public class Main {
 
                         System.out.println("\n>>>>>>>>> PAYMENT DETAILS <<<<<<<<<<");
                         System.out.println("Remaining Balance : ₱" + tuitionFeePayment.getRemainingBalance());
+                        double change =
+                                tuitionFeePayment.getChange(payment);
 
+                        if (change > 0){
 
+                            System.out.println(
+                                    "Change            : ₱"
+                                            + change
+                            );
+                        }
 
                         if (tuitionFeePayment.isFullyPaid()) {
 
@@ -709,7 +704,7 @@ public class Main {
                             System.out.println("Payment Status    : With Balance");
                         }
 
-                    } catch (Exception e){
+                    } catch (Exception e) {
 
                         System.out.println("Invalid input.");
                         cyc.nextLine();
@@ -725,95 +720,6 @@ public class Main {
                     System.out.println("Invalid option.");
             }
         }
-
-/*
-    TuitionFeePayment tuitionFeePayment = new TuitionFeePayment();
-        System.out.println(tuitionFeePayment.calculateTuitionFee(3, 0.10));
-        tuitionFeePayment.makePayment(1000);
-        System.out.println(tuitionFeePayment.getRemainingBalance());
-
-
-       Student s1 = new Student(67, "Jaques Cabillon", "BSIT");
-        System.out.println("Student ID: " + s1.getID());
-        System.out.println("Student Name: " + s1.getName());
-        System.out.println("Program: " + s1.getProgram());
-        System.out.println();
-
-        s1.mainTask();
-
-        System.out.println();
-
-        Student s2 = new Student(69, "Yev Torres", "BSIT");
-        System.out.println("Student ID: " + s2.getID());
-        System.out.println("Student Name: " + s2.getName());
-        System.out.println("Program: " + s2.getProgram());
-        System.out.println();
-
-        s2.mainTask();
-
-        System.out.println();
-
-        Instructor i1 = new Instructor (202, "Miguel Rosal", "Interrogative Programming");
-        System.out.println("Instructor ID: " + i1.getID());
-        System.out.println("Instructor Name: " + i1.getName());
-        System.out.println("Course: " + i1.getCourses());
-
-        i1.mainTask();
-
-        Course c1 = new Course("INFOMAN", "Information Management", "BSIT");
-        System.out.println("Course ID: " + c1.getcourseID());
-        System.out.println("Course Name: " + c1.getcourseName());
-        System.out.println("Program: " + c1.getprogram());
-        System.out.println();
-
-
-
-
-
-
-        Student s6 = new Student(1, "Migs", "BSIT");
-        Student s7 = new Student(2, "John", "BSCS");
-
-        courseRegistrar.addStudent(s6);
-        courseRegistrar.addStudent(s7);
-
-
-        System.out.println("=== Students ===");
-        courseRegistrar.displayAllStudent();
-
-
-        Student updated = new Student(1, "Miguel", "BSIT");
-        courseRegistrar.updateStudent(updated);
-
-        System.out.println("\n=== After Update ===");
-        courseRegistrar.displayAllStudent();
-
-
-        courseRegistrar.deleteStudent(s7);
-
-        System.out.println("\n=== After Delete ===");
-        courseRegistrar.displayAllStudent();
-
-
-
-        Section section = new Section("BSIT-1A", 2);
-
-        Student s8 = new Student(1, "Migs", "BSIT");
-        Student s9 = new Student(2, "John", "BSIT");
-        Student s10 = new Student(3, "Alex", "BSIT");
-
-        try {
-            enrollmentService.enrollStudentInSection(s8, section);
-            enrollmentService.enrollStudentInSection(s9, section);
-
-
-            enrollmentService.enrollStudentInSection(s10, section);
-
-        } catch (SectionFullException e) {
-            System.out.println("ERROR: " + e.getMessage());
-        }
-        */
-
     }
 }
 
