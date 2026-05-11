@@ -359,30 +359,49 @@ public class Main {
                     break;
 
                 case 4:
+
                     TuitionFeePayment tuitionFeePayment =
                             new TuitionFeePayment();
 
-                    System.out.print("Enter number of units: ");
-                    int units = cyc.nextInt();
+                    System.out.println("\n>>>>>>>> TUITION MENU <<<<<<<<<<");
 
-                    System.out.print("Enter discount rate (0.10 for 10%): ");
-                    double discount = cyc.nextDouble();
+                    try {
 
-                    double total =
-                            tuitionFeePayment.calculateTuitionFee(units, discount);
+                        System.out.print("Enter number of units: ");
+                        int units = cyc.nextInt();
 
-                    System.out.println("Total Tuition Fee: " + total);
+                        System.out.print("Enter discount rate (0.10 for 10%): ");
+                        double discount = cyc.nextDouble();
 
-                    System.out.print("Enter payment amount: ");
-                    double payment = cyc.nextDouble();
+                        double total = tuitionFeePayment.calculateTuitionFee(units, discount);
 
-                    tuitionFeePayment.makePayment(payment);
+                        System.out.println("\n>>>>>>>>>> TUITION DETAILS <<<<<<<<<<");
+                        System.out.println("Total Tuition Fee : ₱" + total);
 
-                    System.out.println("Remaining Balance: "
-                            + tuitionFeePayment.getRemainingBalance());
+                        System.out.print("\nEnter payment amount: ₱");
+                        double payment = cyc.nextDouble();
 
-                    System.out.println("Fully Paid: "
-                            + tuitionFeePayment.isFullyPaid());
+                        tuitionFeePayment.makePayment(payment);
+
+                        System.out.println("\n>>>>>>>>> PAYMENT DETAILS <<<<<<<<<<");
+                        System.out.println("Remaining Balance : ₱"
+                                + tuitionFeePayment.getRemainingBalance());
+
+                        if (tuitionFeePayment.isFullyPaid()) {
+
+                            System.out.println("Payment Status    : Fully Paid");
+
+                        } else {
+
+                            System.out.println("Payment Status    : With Balance");
+                        }
+
+                    } catch (Exception e){
+
+                        System.out.println("Invalid input.");
+                        cyc.nextLine();
+                    }
+
                     break;
 
                 case 5:
@@ -484,7 +503,6 @@ public class Main {
 
     }
 }
-
 
 
 
