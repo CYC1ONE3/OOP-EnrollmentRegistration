@@ -4,10 +4,10 @@ import org.example.model.Course;
 import org.example.model.Student;
 
 public class CourseRegistrar {
-    private static StudentRegistration studentRegistration;
+    private StudentRegistration studentRegistration;
     private CourseRegistration courseRegistration;
 
-    public CourseRegistrar(StudentRegistration studentRegistration, CourseRegistration courseRegistration){
+    public CourseRegistrar(StudentRegistration studentRegistration, CourseRegistration courseRegistration, IEnrollmentService enrollmentService){
         this.studentRegistration = studentRegistration;
         this.courseRegistration = courseRegistration;
     }
@@ -17,13 +17,16 @@ public class CourseRegistrar {
         return "success";
     }
 
-        public static String addStudent(Student student){
+        public String addStudent(Student student){
         studentRegistration.addStudent(student);
             return "success";
         }
 
-    public void displayAllStudent(){
-        studentRegistration.displayAllStudent();
+    public void displayAllStudent() {
+
+        for (Student s : studentRegistration.getAllStudents()) {
+            System.out.println(s);
+        }
     }
 
     public void displayAllCourse(){

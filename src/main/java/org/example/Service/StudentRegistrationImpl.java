@@ -2,18 +2,25 @@ package org.example.Service;
 
 import org.example.model.Student;
 import java.util.ArrayList;
+import java.util.List;
 
 public class StudentRegistrationImpl implements StudentRegistration {
     private ArrayList<Student> students = new ArrayList<>();
 
     @Override
     public void addStudent(Student student) {
-        students.add(student);
+    for (Student s : students) {
+        if (s.getID() == student.getID()) {
+            System.out.println("Error: Duplicate Student ID");
+            return;
+        }
     }
 
+        students.add(student);
+}
     @Override
-    public void displayAllStudent() {
-        System.out.println(students);
+    public List<Student> getAllStudents() {
+        return students;
     }
 
     @Override
@@ -37,6 +44,6 @@ public class StudentRegistrationImpl implements StudentRegistration {
                 return "Successfully deleted";
             }
         }
-        return "Error";
+        return "Error: Student not found";
     }
 }

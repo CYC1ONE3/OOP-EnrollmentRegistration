@@ -28,12 +28,14 @@ public class Student extends Person{
     public void mainTask() {
         System.out.println(getName() + " is studying");
     }
-
     @Override
     public String toString() {
         return "Student{" +
-                "program='" + program + '\'' +
+                "ID=" + getID() +
+                ", Name='" + getName() + '\'' +
+                ", Program='" + program + '\'' +
                 '}';
+
     }
 }
 

@@ -1,43 +1,27 @@
-package org.example.Service;
+package org.example.model;
 
-import org.example.model.*;
-import org.example.exception.SectionFullException;
+import java.util.ArrayList;
+import java.util.List;
 
-public class EnrollmentServiceImpl implements IEnrollmentService {
+public class Department {
 
-    @Override
-    public void enrollStudentInSection(Student student, Section section)
-            throws SectionFullException {
+    private String name;
+    private List<Section> sections;
 
-        // 🔥 CAPACITY VALIDATION (CRITICAL REQUIREMENT)
-        if (section.getStudents().size() >= section.getMaxCapacity()) {
-            throw new SectionFullException(
-                    "Enrollment failed: " + section.getSectionName() + " is full."
-            );
-        }
-
-        section.getStudents().add(student);
+    public Department(String name) {
+        this.name = name;
+        this.sections = new ArrayList<>();
     }
 
-    @Override
-    public void viewDepartmentHierarchy(Department department) {
+    public String getName() {
+        return name;
+    }
 
-        System.out.println("Department: " + department.getName());
+    public List<Section> getSections() {
+        return sections;
+    }
 
-        for (Section section : department.getSections()) {
-
-            System.out.println("\nSection: " + section.getSectionName());
-
-            if (section.getInstructor() != null) {
-                System.out.println("Instructor: " +
-                        section.getInstructor().getName());
-            }
-
-            System.out.println("Students:");
-
-            for (Student student : section.getStudents()) {
-                System.out.println("- " + student.getName());
-            }
-        }
+    public void addSection(Section section) {
+        sections.add(section);
     }
 }

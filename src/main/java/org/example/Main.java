@@ -81,16 +81,21 @@ public class Main {
                 enrollment.displayAll();
 
 */
+
         StudentRegistrationImpl studentRegistration = new StudentRegistrationImpl();
+
         CourseRegistrationImpl courseRegistration = new CourseRegistrationImpl();
-        CourseRegistrar courseRegistrar = new CourseRegistrar(studentRegistration, courseRegistration);
+
+        IEnrollmentService enrollmentService = new EnrollmentServiceImpl();
+
+        CourseRegistrar courseRegistrar = new CourseRegistrar(studentRegistration, courseRegistration, enrollmentService);
 
 
         Student s6 = new Student(1, "Migs", "BSIT");
         Student s7 = new Student(2, "John", "BSCS");
 
-        CourseRegistrar.addStudent(s6);
-        CourseRegistrar.addStudent(s7);
+        courseRegistrar.addStudent(s6);
+        courseRegistrar.addStudent(s7);
 
 
         System.out.println("=== Students ===");
@@ -104,12 +109,12 @@ public class Main {
         courseRegistrar.displayAllStudent();
 
 
-        courseRegistrar.deleteStudent(s2);
+        courseRegistrar.deleteStudent(s7);
 
         System.out.println("\n=== After Delete ===");
         courseRegistrar.displayAllStudent();
 
-        IEnrollmentService enrollmentService = new EnrollmentServiceImpl();
+
 
         Section section = new Section("BSIT-1A", 2);
 
