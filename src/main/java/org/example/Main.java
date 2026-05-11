@@ -8,10 +8,94 @@ import org.example.model.Section;
 import org.example.exception.SectionFullException;
 import org.example.Service.EnrollmentServiceImpl;
 
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
 
+        Scanner cyc = new Scanner(System.in);
+        StudentRegistrationImpl studentRegistration = new StudentRegistrationImpl();
 
+        CourseRegistrationImpl courseRegistration = new CourseRegistrationImpl();
+
+        IEnrollmentService enrollmentService = new EnrollmentServiceImpl();
+
+        CourseRegistrar courseRegistrar = new CourseRegistrar(studentRegistration, courseRegistration, enrollmentService);
+
+
+        while (true) {
+
+            System.out.println("\n>>>>>>>> ENROLLMENT SYSTEM <3 <<<<<<<");
+            System.out.println("1. Student Management");
+            System.out.println("2. Course Management");
+            System.out.println("3. Enrollment");
+            System.out.println("4. Tuition");
+            System.out.println("5. Exit");
+
+            System.out.print("Choose option: ");
+
+            int choice;
+
+            try {
+                choice = cyc.nextInt();
+                cyc.nextLine();
+
+            } catch (Exception e) {
+
+                System.out.println("Invalid input.");
+                cyc.nextLine();
+                continue;
+            }
+
+            switch (choice) {
+
+                case 1:
+                    break;
+                case 2:
+                    System.out.println("Course Menu");
+                    break;
+
+                case 3:
+                    System.out.println("Enrollment Menu");
+                    break;
+
+                case 4:
+                    TuitionFeePayment tuitionFeePayment =
+                            new TuitionFeePayment();
+
+                    System.out.print("Enter number of units: ");
+                    int units = cyc.nextInt();
+
+                    System.out.print("Enter discount rate (0.10 for 10%): ");
+                    double discount = cyc.nextDouble();
+
+                    double total =
+                            tuitionFeePayment.calculateTuitionFee(units, discount);
+
+                    System.out.println("Total Tuition Fee: " + total);
+
+                    System.out.print("Enter payment amount: ");
+                    double payment = cyc.nextDouble();
+
+                    tuitionFeePayment.makePayment(payment);
+
+                    System.out.println("Remaining Balance: "
+                            + tuitionFeePayment.getRemainingBalance());
+
+                    System.out.println("Fully Paid: "
+                            + tuitionFeePayment.isFullyPaid());
+                    break;
+
+                case 5:
+                    System.out.println("Exiting system...");
+                    return;
+
+                default:
+                    System.out.println("Invalid option.");
+            }
+        }
+
+/*
     TuitionFeePayment tuitionFeePayment = new TuitionFeePayment();
         System.out.println(tuitionFeePayment.calculateTuitionFee(3, 0.10));
         tuitionFeePayment.makePayment(1000);
@@ -52,43 +136,8 @@ public class Main {
         System.out.println();
 
 
-/*
-                Scanner cyc = new Scanner(System.in);
-                ArrayList<Student> students = new ArrayList<>();
-                CourseRegistration courses = new CourseRegistration();
-
-                courses.addCourse(new Course("INFOMAN", "Information Management", "Information Technology"));
-                courses.addCourse(new Course("INFASEC", "Infrastructure and Security", "Industrial Engineering"));
-                courses.addCourse(new Course("ITELECT1", "IT Elective 1", "Architecture"));
-
-                courses.displayAll();
 
 
-                courses.updateCourse(new Course("PATHFI"));
-                courses.displayAll();
-
-                courses.deleteCourse(new Course("ITSYSDE"));
-                courses.displayAll();
-
-                StudentRegistration enrollment = new StudentRegistration();
-
-                enrollment.addStudent(new Student(2222, "Miguel", "BSIT"));
-                enrollment.addStudent(new Student(6767, "Jaques", "BSIT"));
-                enrollment.addStudent(new Student(2222, "Raphael", "BSIT"));
-
-
-                enrollment.updateStudent(new Student(676767, "Yev", "BSIT"));
-                enrollment.displayAll();
-
-*/
-
-        StudentRegistrationImpl studentRegistration = new StudentRegistrationImpl();
-
-        CourseRegistrationImpl courseRegistration = new CourseRegistrationImpl();
-
-        IEnrollmentService enrollmentService = new EnrollmentServiceImpl();
-
-        CourseRegistrar courseRegistrar = new CourseRegistrar(studentRegistration, courseRegistration, enrollmentService);
 
 
         Student s6 = new Student(1, "Migs", "BSIT");
@@ -126,12 +175,14 @@ public class Main {
             enrollmentService.enrollStudentInSection(s8, section);
             enrollmentService.enrollStudentInSection(s9, section);
 
-            // This should FAIL
+
             enrollmentService.enrollStudentInSection(s10, section);
 
         } catch (SectionFullException e) {
             System.out.println("ERROR: " + e.getMessage());
         }
+        */
+
     }
 
 }
