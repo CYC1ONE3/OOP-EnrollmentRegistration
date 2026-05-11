@@ -17,9 +17,9 @@ public class CourseRegistrar {
         this.enrollmentService = enrollmentService;
     }
 
-    public String addCourse(Course course){
-        courseRegistration.addCourse(course);
-        return "success";
+    public boolean addCourse(Course course){
+
+        return courseRegistration.addCourse(course);
     }
 
     public boolean addStudent(Student student){

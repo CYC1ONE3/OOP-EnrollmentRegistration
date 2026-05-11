@@ -335,9 +335,17 @@ public class Main {
                                 Course course =
                                         new Course(courseID, courseName, program);
 
-                                courseRegistrar.addCourse(course);
+                                boolean addedCourse =
+                                        courseRegistrar.addCourse(course);
 
-                                System.out.println("Course added successfully.");
+                                if (addedCourse){
+
+                                    System.out.println("Course added successfully.");
+
+                                } else {
+
+                                    System.out.println("Duplicate Course ID.");
+                                }
                                 break;
 
                             case 2:
@@ -389,9 +397,20 @@ public class Main {
 
                             case 1:
 
-                                System.out.print("Enter Student ID: ");
-                                int studentID = cyc.nextInt();
-                                cyc.nextLine();
+                                int studentID;
+
+                                try {
+
+                                    System.out.print("Enter Student ID: ");
+                                    studentID = cyc.nextInt();
+                                    cyc.nextLine();
+
+                                } catch (Exception e){
+
+                                    System.out.println("Invalid Student ID.");
+                                    cyc.nextLine();
+                                    break;
+                                }
 
                                 Student selectedStudent = null;
 
@@ -416,8 +435,19 @@ public class Main {
                                 System.out.println("3. C1A");
                                 System.out.println("4. CS2B");
 
-                                int sectionChoice = cyc.nextInt();
-                                cyc.nextLine();
+                                int sectionChoice;
+
+                                try {
+
+                                    sectionChoice = cyc.nextInt();
+                                    cyc.nextLine();
+
+                                } catch (Exception e){
+
+                                    System.out.println("Invalid section input.");
+                                    cyc.nextLine();
+                                    break;
+                                }
 
                                 Section selectedSection = null;
 
@@ -517,8 +547,18 @@ public class Main {
                         System.out.println("Total Tuition Fee : ₱" + total);
 
                         System.out.print("\nEnter payment amount: ₱");
-                        double payment = cyc.nextDouble();
+                        double payment;
 
+                        try {
+
+                            payment = cyc.nextDouble();
+
+                        } catch (Exception e){
+
+                            System.out.println("Invalid payment input.");
+                            cyc.nextLine();
+                            break;
+                        }
                         tuitionFeePayment.makePayment(payment);
 
                         System.out.println("\n>>>>>>>>> PAYMENT DETAILS <<<<<<<<<<");

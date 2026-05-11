@@ -8,18 +8,20 @@ public class CourseRegistrationImpl implements CourseRegistration {
     private ArrayList<Course> courses = new ArrayList<>();
 
     @Override
-    public void addCourse(Course course) {
+    public boolean addCourse(Course course) {
+
         for (Course c : courses){
 
             if (c.getcourseID()
                     .equals(course.getcourseID())){
 
-                System.out.println("ERROR: Duplicate Course ID");
-                return;
+                return false;
             }
         }
 
-        courses.add(course);;
+        courses.add(course);
+
+        return true;
     }
     @Override
     public void displayAllCourse() {
