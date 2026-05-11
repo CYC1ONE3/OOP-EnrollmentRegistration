@@ -370,8 +370,19 @@ public class Main {
                         System.out.print("Enter number of units: ");
                         int units = cyc.nextInt();
 
+                        if (units <= 0){
+
+                            System.out.println("Invalid number of units.");
+                            break;
+                        }
+
                         System.out.print("Enter discount rate (0.10 for 10%): ");
                         double discount = cyc.nextDouble();
+                        if (discount < 0 || discount > 1){
+
+                            System.out.println("Invalid discount rate.");
+                            break;
+                        }
 
                         cyc.nextLine();
 
