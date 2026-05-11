@@ -78,6 +78,17 @@ class TuitionFeePaymentTest {
         assertEquals(3000, result);
     }
 
+    @Test
+    @DisplayName("Should Apply Academic Scholarship")
+    void shouldApplyAcademicScholarship(){
+
+        tuitionFeePayment.calculateTuitionFee(3,0);
+
+        double result = tuitionFeePayment.applyScholarshipDiscount("Academic");
+
+        assertEquals(1500, result);
+    }
+
 
 }
 
