@@ -50,7 +50,71 @@ public class Main {
             switch (choice) {
 
                 case 1:
+
+                    while (true) {
+
+                        System.out.println("\n===== STUDENT MENU =====");
+                        System.out.println("1. Add Student");
+                        System.out.println("2. View Students");
+                        System.out.println("3. Back");
+
+                        System.out.print("Choose option: ");
+
+                        int studentChoice;
+
+                        try {
+
+                            studentChoice = cyc.nextInt();
+                            cyc.nextLine();
+
+                        } catch (Exception e) {
+
+                            System.out.println("Invalid input.");
+                            cyc.nextLine();
+                            continue;
+                        }
+
+                        switch (studentChoice) {
+
+                            case 1:
+
+                                System.out.print("Enter ID: ");
+                                int id = cyc.nextInt();
+                                cyc.nextLine();
+
+                                System.out.print("Enter Name: ");
+                                String name = cyc.nextLine();
+
+                                System.out.print("Enter Program: ");
+                                String program = cyc.nextLine();
+
+                                Student student =
+                                        new Student(id, name, program);
+
+                                courseRegistrar.addStudent(student);
+
+                                System.out.println("Student added successfully.");
+                                break;
+
+                            case 2:
+
+                                courseRegistrar.displayAllStudent();
+                                break;
+
+                            case 3:
+                                break;
+
+                            default:
+                                System.out.println("Invalid option.");
+                        }
+
+                        if (studentChoice == 3){
+                            break;
+                        }
+                    }
+
                     break;
+
                 case 2:
                     System.out.println("Course Menu");
                     break;
