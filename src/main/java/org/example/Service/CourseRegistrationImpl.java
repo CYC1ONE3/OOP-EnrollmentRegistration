@@ -13,7 +13,18 @@ public class CourseRegistrationImpl implements CourseRegistration {
     }
     @Override
     public void displayAllCourse() {
-        System.out.println(courses);
+
+        System.out.println("\n>>>>>>>>>> COURSE LIST <<<<<<<<<<<");
+
+        for (Course c : courses){
+
+            System.out.println("------------------------------");
+            System.out.println("Course ID   : " + c.getcourseID());
+            System.out.println("Course Name : " + c.getcourseName());
+            System.out.println("Program     : " + c.getprogram());
+        }
+
+        System.out.println("------------------------------");
     }
     @Override
     public void updateCourse(Course course) {

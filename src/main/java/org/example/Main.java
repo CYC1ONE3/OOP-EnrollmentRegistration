@@ -116,7 +116,7 @@ public class Main {
 
                     while (true) {
 
-                        System.out.println("\n===== STUDENT MENU =====");
+                        System.out.println("\n>>>>> STUDENT MENU <<<<<");
                         System.out.println("1. Add Student");
                         System.out.println("2. View Students");
                         System.out.println("3. Back");
@@ -183,7 +183,7 @@ public class Main {
 
                     while (true){
 
-                        System.out.println("\n===== COURSE MENU =====");
+                        System.out.println("\n>>>>> COURSE MENU <<<<<");
                         System.out.println("1. Add Course");
                         System.out.println("2. View Courses");
                         System.out.println("3. Back");
@@ -249,7 +249,7 @@ public class Main {
 
                     while (true){
 
-                        System.out.println("\n===== ENROLLMENT MENU =====");
+                        System.out.println("\n>>>>> ENROLLMENT MENU <<<<<");
                         System.out.println("1. Enroll Student");
                         System.out.println("2. View Department Hierarchy");
                         System.out.println("3. Back");
