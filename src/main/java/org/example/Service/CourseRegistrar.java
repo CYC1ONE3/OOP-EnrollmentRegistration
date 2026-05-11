@@ -22,10 +22,10 @@ public class CourseRegistrar {
         return "success";
     }
 
-        public String addStudent(Student student){
-        studentRegistration.addStudent(student);
-            return "success";
-        }
+    public boolean addStudent(Student student){
+
+        return studentRegistration.addStudent(student);
+    }
 
     public void displayAllStudent() {
 

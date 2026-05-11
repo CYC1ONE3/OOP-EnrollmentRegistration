@@ -8,16 +8,20 @@ public class StudentRegistrationImpl implements StudentRegistration {
     private ArrayList<Student> students = new ArrayList<>();
 
     @Override
-    public void addStudent(Student student) {
-    for (Student s : students) {
-        if (s.getID() == student.getID()) {
-            System.out.println("Error: Duplicate Student ID");
-            return;
+    public boolean addStudent(Student student) {
+
+        for (Student s : students) {
+
+            if (s.getID() == student.getID()) {
+
+                return false;
+            }
         }
-    }
 
         students.add(student);
-}
+
+        return true;
+    }
     @Override
     public List<Student> getAllStudents() {
         return students;

@@ -141,24 +141,48 @@ public class Main {
 
                             case 1:
 
-                                System.out.print("Enter ID: ");
-                                int id = cyc.nextInt();
-                                cyc.nextLine();
+                                while (true){
 
-                                System.out.print("Enter Name: ");
-                                String name = cyc.nextLine();
+                                    int id;
 
-                                System.out.print("Enter Program: ");
-                                String program = cyc.nextLine();
+                                    try {
 
-                                Student student =
-                                        new Student(id, name, program);
+                                        System.out.print("Enter ID: ");
+                                        id = cyc.nextInt();
+                                        cyc.nextLine();
 
-                                courseRegistrar.addStudent(student);
+                                    } catch (Exception e){
 
-                                System.out.println("Student added successfully.");
+                                        System.out.println("Invalid ID input.");
+                                        cyc.nextLine();
+                                        break;
+                                    }
+
+                                    System.out.print("Enter Name: ");
+                                    String name = cyc.nextLine();
+
+                                    System.out.print("Enter Program: ");
+                                    String program = cyc.nextLine();
+
+                                    Student student =
+                                            new Student(id, name, program);
+
+                                    boolean added =
+                                            courseRegistrar.addStudent(student);
+
+                                    if (added){
+
+                                        System.out.println("Student added successfully.");
+                                        break;
+
+                                    } else {
+
+                                        System.out.println("ERROR: Duplicate Student ID");
+                                        System.out.println("Please try again.\n");
+                                    }
+                                }
+
                                 break;
-
                             case 2:
 
                                 courseRegistrar.displayAllStudent();
@@ -375,6 +399,8 @@ public class Main {
                             System.out.println("Invalid number of units.");
                             break;
                         }
+
+
 
                         System.out.print("Enter discount rate (0.10 for 10%): ");
                         double discount = cyc.nextDouble();
