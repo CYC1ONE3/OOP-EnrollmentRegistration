@@ -32,8 +32,23 @@ Interfaces Used:
 - IEnrollmentService
 - IInstructorService
 
-![polymorphism.png](src/main/resources/Images/polymorphism.png)
+![Polymorphism.png](src/main/resources/Images/Polymorphism.png)
+![Polymorphism2.png](src/main/resources/Images/Polymorphism2.png)
 
+**VALIDATION AND ERROR HANDLING**
+
+The system prevents crashes by using:
+- Try-Catch Blocks
+- Duplicate Validation
+- Invalid Numeric Input Handling
+
+Examples:
+- Prevent duplicate Student IDs
+- Prevent duplicate Instructor IDs
+- Prevent invalid payment input
+- Prevent invalid menu selections
+
+![Validation.png](src/main/resources/Images/Validation.png)
 
 **CLI - STUDENT MANAGEMENT**
 
@@ -52,7 +67,7 @@ Interfaces Used:
 - Update Instructor
 - Delete Instructor
 
-![instructor-cli.png](src/main/resources/Images/instructor-cli.png)
+![Instructorcli.png](src/main/resources/Images/Instructorcli.png)
 
 **CLI - COURSE MANAGEMENT**
 
@@ -69,14 +84,34 @@ Interfaces Used:
 - View Department Hierarchy
 - Section Capacity Validation
 
-![enrollment-cli.png](src/main/resources/Images/enrollment-cli.png)
+![enrollmentcli.png](src/main/resources/Images/enrollmentcli.png)
+
+![EnrollmentHierarchy.png](src/main/resources/Images/EnrollmentHierarchy.png)
 
 **CUSTOM EXCEPTION**
 
-The system uses `SectionFullException`
-to prevent students from enrolling in full sections.
+The system uses `SectionFullException and DuplicateEnrollmentException`
+to prevent students from enrolling in full sections and to prevent students from enrolling in the same section
 
-![exception.png](src/main/resources/Images/exception.png)
+![SectionFullexception.png](src/main/resources/Images/SectionFullexception.png)
+![Duplicateexception.png](src/main/resources/Images/Duplicateexception.png)
+
+
+**TUITION MANAGEMENT**
+
+Features:
+- Tuition Fee Calculation
+- Scholarship Discounts
+- Payment Processing
+- Remaining Balance Calculation
+- Change Calculation
+
+Scholarship Types:
+- Academic Scholarship (50%)
+- Athletic Scholarship (25%)
+
+![Tuitioncli.png](src/main/resources/Images/Tuitioncli.png)
+
 
 **AUTOMATED TESTING (JUnit)**
 
@@ -84,4 +119,17 @@ to prevent students from enrolling in full sections.
 - Enrollment Tests
 - Validation Tests
 
-![junit-tests.png](src/main/resources/Images/junit-tests.png)
+Course Registrar Test
+![CourseRegistrarTest.png](src/main/resources/Images/CourseRegistrarTest.png)
+
+CourseRegistrationImpl Test
+![CourseRegistrationImplTest.png](src/main/resources/Images/CourseRegistrationImplTest.png)
+
+EnrollmentService Test
+![EnrollmentServiceTest.png](src/main/resources/Images/EnrollmentServiceTest.png)
+
+StudentRegistrationImpl Test
+![StudentRegistrationImplTest.png](src/main/resources/Images/StudentRegistrationImplTest.png)
+
+TuitionFeePayment Test
+![TuitionFeePaymentTest.png](src/main/resources/Images/TuitionFeePaymentTest.png)

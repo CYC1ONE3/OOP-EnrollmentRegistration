@@ -1,5 +1,6 @@
 package org.example.Service;
 
+import org.example.exception.DuplicateEnrollmentException;
 import org.example.model.Student;
 import org.example.model.Section;
 import org.example.model.Department;
@@ -8,7 +9,6 @@ import org.example.exception.SectionFullException;
 public interface IEnrollmentService {
 
     void enrollStudentInSection(Student student, Section section)
-            throws SectionFullException;
-
+            throws SectionFullException, DuplicateEnrollmentException;
     void viewDepartmentHierarchy(Department department);
 }

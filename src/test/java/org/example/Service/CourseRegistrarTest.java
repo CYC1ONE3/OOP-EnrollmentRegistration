@@ -42,8 +42,8 @@ class CourseRegistrarTest {
 
         Course course = new Course("INTEPROG", "Integrative Programming", "BSIT");
 
-        String result = courseRegistrar.addCourse(course);
+        boolean result = courseRegistrar.addCourse(course);
 
-        assertEquals("success", result);
+        assertTrue(result);
     }
 }

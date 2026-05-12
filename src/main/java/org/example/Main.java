@@ -233,7 +233,7 @@ public class Main {
                                 System.out.println("Invalid option.");
                         }
 
-                        if (studentChoice == 3) {
+                        if (studentChoice == 5) {
                             break;
                         }
                     }
@@ -598,10 +598,7 @@ public class Main {
 
                                 if (selectedSection != null) {
 
-                                    courseRegistrar.enrollStudent(
-                                            selectedStudent,
-                                            selectedSection
-                                    );
+                                    courseRegistrar.enrollStudent(selectedStudent, selectedSection);
                                 }
 
                                 break;
