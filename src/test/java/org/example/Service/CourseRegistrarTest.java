@@ -44,6 +44,6 @@ class CourseRegistrarTest {
 
         boolean result = courseRegistrar.addCourse(course);
 
-        assertEquals("success", result);
+        assertTrue(result);
     }
 }

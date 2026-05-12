@@ -32,7 +32,7 @@ Interfaces Used:
 - IEnrollmentService
 - IInstructorService
 
-![polymorphism.png](src/main/resources/Images/polymorphism.png)
+![Polymorphism.png](src/main/resources/Images/Polymorphism.png)
 
 
 **CLI - STUDENT MANAGEMENT**
@@ -52,7 +52,7 @@ Interfaces Used:
 - Update Instructor
 - Delete Instructor
 
-![instructor-cli.png](src/main/resources/Images/instructor-cli.png)
+![Instructorcli.png](src/main/resources/Images/Instructorcli.png)
 
 **CLI - COURSE MANAGEMENT**
 
@@ -69,7 +69,9 @@ Interfaces Used:
 - View Department Hierarchy
 - Section Capacity Validation
 
-![enrollment-cli.png](src/main/resources/Images/enrollment-cli.png)
+![enrollmentcli.png](src/main/resources/Images/enrollmentcli.png)
+
+![EnrollmentHierarchy.png](src/main/resources/Images/EnrollmentHierarchy.png)
 
 **CUSTOM EXCEPTION**
 
@@ -85,4 +87,8 @@ to prevent students from enrolling in full sections and to prevent students from
 - Enrollment Tests
 - Validation Tests
 
-![junit-tests.png](src/main/resources/Images/junit-tests.png)
+![CourseRegistrarTest.png](src/main/resources/Images/CourseRegistrarTest.png)
+![CourseRegistrationImpl.png](src/main/resources/Images/CourseRegistrationImpl.png)
+![EnrollmentServiceTest.png](src/main/resources/Images/EnrollmentServiceTest.png)
+![StudentRegistrationImpl.png](src/main/resources/Images/StudentRegistrationImpl.png)
+![TuitionFeePaymentTest.png](src/main/resources/Images/TuitionFeePaymentTest.png)

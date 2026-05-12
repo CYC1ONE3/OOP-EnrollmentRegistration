@@ -233,7 +233,7 @@ public class Main {
                                 System.out.println("Invalid option.");
                         }
 
-                        if (studentChoice == 3) {
+                        if (studentChoice == 5) {
                             break;
                         }
                     }
