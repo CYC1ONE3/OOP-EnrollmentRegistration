@@ -1,19 +1,28 @@
 package org.example.Service;
 
+import org.example.exception.DuplicateEnrollmentException;
 import org.example.model.*;
 import org.example.exception.SectionFullException;
 
 public class EnrollmentServiceImpl implements IEnrollmentService {
 
-    @Override
-    public void enrollStudentInSection(Student student, Section section)
-            throws SectionFullException {
 
-        // 🔥 CAPACITY VALIDATION (CRITICAL REQUIREMENT)
+    @Override
+    public void enrollStudentInSection(Student student, Section section) throws SectionFullException, DuplicateEnrollmentException {
+
+
+        for (Student s : section.getStudents()) {
+
+            if (s.getID() == student.getID()) {
+
+                throw new DuplicateEnrollmentException("Student is already enrolled in this section.");
+            }
+        }
+
+
         if (section.getStudents().size() >= section.getMaxCapacity()) {
-            throw new SectionFullException(
-                    "Enrollment failed: " + section.getSectionName() + " is full."
-            );
+
+            throw new SectionFullException("Enrollment failed: " + section.getSectionName() + " is full.");
         }
 
         section.getStudents().add(student);
@@ -29,8 +38,7 @@ public class EnrollmentServiceImpl implements IEnrollmentService {
             System.out.println("\nSection: " + section.getSectionName());
 
             if (section.getInstructor() != null) {
-                System.out.println("Instructor: " +
-                        section.getInstructor().getName());
+                System.out.println("Instructor: " + section.getInstructor().getName());
             }
 
             System.out.println("Students:");

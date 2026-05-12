@@ -7,13 +7,10 @@ import java.util.List;
 
 public class InstructorServiceImpl implements IInstructorService {
 
-    private ArrayList<Instructor> instructors =
-            new ArrayList<>();
+    private ArrayList<Instructor> instructors = new ArrayList<>();
 
     @Override
-    public boolean addInstructor(
-            Instructor instructor
-    ){
+    public boolean addInstructor(Instructor instructor){
 
         for (Instructor i : instructors){
 
@@ -35,14 +32,11 @@ public class InstructorServiceImpl implements IInstructorService {
     }
 
     @Override
-    public void updateInstructor(
-            Instructor instructor
-    ){
+    public void updateInstructor(Instructor instructor){
 
         for (int i = 0; i < instructors.size(); i++){
 
-            if (instructors.get(i).getID()
-                    == instructor.getID()){
+            if (instructors.get(i).getID() == instructor.getID()){
 
                 instructors.set(i, instructor);
                 break;
@@ -57,8 +51,7 @@ public class InstructorServiceImpl implements IInstructorService {
 
         for (int i = 0; i < instructors.size(); i++){
 
-            if (instructors.get(i).getID()
-                    == instructor.getID()){
+            if (instructors.get(i).getID() == instructor.getID()){
 
                 instructors.remove(i);
 
@@ -72,9 +65,7 @@ public class InstructorServiceImpl implements IInstructorService {
     @Override
     public void displayAllInstructors() {
 
-        System.out.println(
-                "\n>>>>>>>> INSTRUCTOR LIST <<<<<<<<"
-        );
+        System.out.println("\n>>>>>>>> INSTRUCTOR LIST <<<<<<<<");
 
         if (instructors.isEmpty()){
 
@@ -86,19 +77,13 @@ public class InstructorServiceImpl implements IInstructorService {
 
             System.out.println("------------------------------");
 
-            System.out.println(
-                    "Instructor ID : "
-                            + i.getID()
+            System.out.println("Instructor ID : " + i.getID()
             );
 
-            System.out.println(
-                    "Name          : "
-                            + i.getName()
+            System.out.println("Name          : " + i.getName()
             );
 
-            System.out.println(
-                    "Course        : "
-                            + i.getCourses()
+            System.out.println("Course        : " + i.getCourses()
             );
         }
     }

@@ -1,5 +1,6 @@
 package org.example.Service;
 
+import org.example.exception.DuplicateEnrollmentException;
 import org.example.model.Section;
 import org.example.exception.SectionFullException;
 import org.example.model.Course;
@@ -65,9 +66,9 @@ public class CourseRegistrar {
 
             enrollmentService.enrollStudentInSection(student, section);
 
-            System.out.println("Student successfully enrolled in " + section.getSectionName());
+            System.out.println("Student enrolled successfully.");
 
-        } catch (SectionFullException e){
+        } catch (SectionFullException | DuplicateEnrollmentException e) {
 
             System.out.println("ERROR: " + e.getMessage());
         }
