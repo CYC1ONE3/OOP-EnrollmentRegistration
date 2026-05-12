@@ -73,10 +73,11 @@ Interfaces Used:
 
 **CUSTOM EXCEPTION**
 
-The system uses `SectionFullException`
-to prevent students from enrolling in full sections.
+The system uses `SectionFullException and DuplicateEnrollmentException`
+to prevent students from enrolling in full sections and to prevent students from enrolling in the same section
 
-![exception.png](src/main/resources/Images/exception.png)
+![SectionFullexception.png](src/main/resources/Images/SectionFullexception.png)
+![Duplicateexception.png](src/main/resources/Images/Duplicateexception.png)
 
 **AUTOMATED TESTING (JUnit)**
 

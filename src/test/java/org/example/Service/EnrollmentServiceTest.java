@@ -32,7 +32,7 @@ public class EnrollmentServiceTest {
 
             fail("Expected SectionFullException was not thrown");
 
-        } catch (SectionFullException e){
+        } catch (SectionFullException | DuplicateEnrollmentException e){
 
             assertEquals("Enrollment failed: IT2A is full.", e.getMessage());
         }
@@ -45,15 +45,14 @@ public class EnrollmentServiceTest {
 
         Student student = new Student(1, "Migs", "BSIT");
 
-        IEnrollmentService enrollmentService =
-                new EnrollmentServiceImpl();
+        IEnrollmentService enrollmentService = new EnrollmentServiceImpl();
 
         try {
 
-            // First enrollment
+
             enrollmentService.enrollStudentInSection(student, section);
 
-            // Duplicate enrollment
+
             enrollmentService.enrollStudentInSection(student, section);
 
             fail("Expected DuplicateEnrollmentException");
